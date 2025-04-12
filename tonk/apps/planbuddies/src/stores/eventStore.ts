@@ -18,12 +18,20 @@ export interface EventResponse {
   respondedAt: number;
 }
 
+export interface EventItem {
+  id: string;
+  name: string;
+}
+
 export interface Event {
   id: string;
   title: string;
+  description: string;
+  location: string;
   date: string;
   createdBy: string;
   createdAt: number;
+  items: EventItem[];
   responses: EventResponse[];
 }
 
@@ -34,7 +42,7 @@ export interface EventState {
   // Actions
   addUser: (name: string) => string;
   removeUser: (id: string) => void;
-  createEvent: (title: string, date: string, createdBy: string) => void;
+  createEvent: (title: string, description: string, location: string, date: string, items: string[], createdBy: string) => void;
   respondToEvent: (eventId: string, userId: string, response: "going" | "not going") => void;
   removeEvent: (id: string) => void;
 }
@@ -78,16 +86,24 @@ export const useEventStore = create<EventState>(
         });
       },
 
-      createEvent: (title, date, createdBy) => {
+      createEvent: (title, description, location, date, items, createdBy) => {
         set((state) => {
           const id = generateId();
+          
+          const eventItems: EventItem[] = items.map(item => ({
+            id: generateId(),
+            name: item
+          }));
           
           const event: Event = {
             id,
             title,
+            description,
+            location,
             date,
             createdBy,
             createdAt: Date.now(),
+            items: eventItems,
             responses: [],
           };
 

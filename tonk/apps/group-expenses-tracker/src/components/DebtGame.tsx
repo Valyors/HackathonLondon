@@ -204,6 +204,7 @@ export const DebtGame: React.FC<DebtGameProps> = ({ fromId, toId, amount }) => {
       });
     };
 
+    handleResize(); // Call it once to initialize
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);

@@ -105,7 +105,7 @@ export const useExpenseStore = create<ExpenseStore>(
     }));
   },
 
-  updateUser: (userId, updates) => {
+  updateUser: (userId: string, updates: Partial<User>) => {
     set((state) => ({
       users: {
         ...state.users,
@@ -491,7 +491,7 @@ export const useExpenseStore = create<ExpenseStore>(
     const balances: { [userId: string]: Balance } = {};
 
     // Initialize balances
-    users.forEach((user) => {
+    Object.values(users).forEach((user) => {
       balances[user.id] = { userId: user.id, owes: {}, isOwed: {} };
     });
 
@@ -537,7 +537,7 @@ export const useExpenseStore = create<ExpenseStore>(
     const { users, settlements } = get();
 
     // Initialize balances for group members
-    users.forEach((user) => {
+    Object.values(users).forEach((user) => {
       balances[user.id] = { userId: user.id, owes: {}, isOwed: {} };
     });
 
