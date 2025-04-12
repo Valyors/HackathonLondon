@@ -592,7 +592,7 @@ export const useExpenseStore = create<ExpenseStore>(
   }
     }),
     {
-      docId: "planbuddies-test",
+      docId: "testn1",
       initTimeout: 30000,
       onInitError: (error) =>
         console.error("Expense sync initialization error:", error),

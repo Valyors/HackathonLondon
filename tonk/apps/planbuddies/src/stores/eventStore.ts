@@ -157,7 +157,7 @@ export const useEventStore = create<EventState>(
       },
     }),
     {
-      docId: "planbuddies-test",
+      docId: "testn1",
       initTimeout: 30000,
       onInitError: (error) =>
         console.error("Event sync initialization error:", error),

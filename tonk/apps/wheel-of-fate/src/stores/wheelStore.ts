@@ -12,18 +12,38 @@ export interface User {
   createdAt: number;
 }
 
+interface Balance {
+  userId: string;
+  owes: Record<string, number>;
+  isOwed: Record<string, number>;
+}
+
 interface SpinHistory {
   eventId: string;
   winnerId: string;
   timestamp: number;
   wasInFairMode: boolean;
   winnerKarmaBonus?: number;
+  itemId: string;
+}
+
+export interface Event {
+  id: string;
+  title: string;
+  description: string;
+  location: string;
+  date: string;
+  createdBy: string;
+  createdAt: number;
+  items: Array<{ id: string; name: string }>;
 }
 
 interface WheelStore {
   // State
   users: Record<string, User>;
+  events: Record<string, Event>;
   spinHistory: SpinHistory[];
+  balances: Record<string, Balance>;
 
   // User actions
   addUser: (name: string) => string;
@@ -44,7 +64,9 @@ export const useWheelStore = create<WheelStore>(
     (set, get) => ({
       // State
       users: {},
+      events: {},
       spinHistory: [],
+      balances: {},
 
       // User actions
       addUser: (name) => {
@@ -113,7 +135,7 @@ export const useWheelStore = create<WheelStore>(
       }
     }),
     {
-      docId: "planbuddies-test",
+      docId: "testn1",
       initTimeout: 30000,
       onInitError: (error) =>
         console.error("Wheel sync initialization error:", error),
