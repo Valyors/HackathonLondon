@@ -1,0 +1,7 @@
+{
+  "name": "planbuddies",
+  "plan": {
+    "description": "fun web app that helps friends organize casual events together."
+  },
+  "template": "react"
+}

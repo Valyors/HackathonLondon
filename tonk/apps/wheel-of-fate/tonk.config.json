@@ -1,0 +1,7 @@
+{
+  "name": "wheel-of-fate",
+  "plan": {
+    "description": "Wheel of Fate is a fun and slightly unfair decision-making app that uses a spinning roulette wheel to pick someone in your group — with odds based on how much they owe. The more debt you have, the more likely you are to get picked. Fair? Maybe not. Fun? Absolutely."
+  },
+  "template": "react"
+}

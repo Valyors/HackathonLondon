@@ -1,0 +1,7 @@
+{
+  "name": "group-expenses-tracker",
+  "plan": {
+    "description": "Group Expenses Tracker is a simple, user-friendly app designed to help groups of friends or households manage and track shared expenses. The app allows users to log expenses, assign them to individuals, and automatically calculate who owes what to whom. It ensures that everyone is on the same page by keeping track of balances, providing real-time updates, and offering an intuitive interface for easily settling debts. Whether for a trip, regular hangouts, or shared living costs, the app streamlines the process of dividing expenses fairly and transparently."
+  },
+  "template": "react"
+}
